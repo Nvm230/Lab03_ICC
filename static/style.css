@@ -1,0 +1,230 @@
+/* Base Minimalist Styling and Variables */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0f172a;      /* Slate 900 - very dark navy/black */
+    --primary-hover: #334155;      /* Slate 700 */
+    --accent-color: #2563eb;       /* Clean Blue */
+    --bg-color: #f8fafc;           /* Slate 50 - Very soft gray/white */
+    --card-bg: #ffffff;
+    --text-main: #1e293b;          /* Slate 800 */
+    --text-muted: #64748b;         /* Slate 500 */
+    --border-color: #e2e8f0;       /* Slate 200 */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar - Minimalist White */
+.custom-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+    letter-spacing: -0.5px;
+}
+
+.nav-user-text {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Cards - Clean, flat, subtle shadow */
+.glass-card, .clean-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    border-radius: 12px !important;
+}
+
+/* Inputs - Minimalist */
+.custom-input {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.custom-input:focus {
+    background-color: #ffffff;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Form floating labels fix for minimalist inputs */
+.form-floating > label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Buttons - Flat, solid, sleek */
+.custom-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.custom-btn:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+.custom-btn:active {
+    transform: scale(0.98);
+}
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    border-color: var(--text-muted);
+}
+
+/* Icons */
+.icon-circle {
+    width: 64px;
+    height: 64px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.avatar {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+}
+.bg-gradient-primary {
+    background: var(--primary-color); /* Fallback to solid color for minimalist look */
+}
+
+/* Tables - Airy and clean */
+.custom-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table th {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    background-color: #ffffff;
+    padding: 1rem;
+}
+
+.custom-table td {
+    padding: 1.25rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-main);
+}
+
+.custom-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+    background-color: #e2e8f0 !important;
+    color: var(--text-main) !important;
+}
+
+/* Action Buttons (Edit/Delete) */
+.action-btn {
+    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    border-color: var(--text-muted);
+}
+
+.btn-outline-danger.action-btn:hover {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border-color: #fca5a5;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+    color: var(--primary-color);
+}
+
+/* Alerts */
+.alert {
+    border: 1px solid;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.alert-danger {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+/* Spacing and alignments */
+hr {
+    border-color: var(--border-color);
+    opacity: 1;
+}

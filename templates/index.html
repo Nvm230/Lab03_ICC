@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-dark"><i class="fa-solid fa-users-gear text-primary me-2"></i> Gestión de Usuarios</h2>
+    <a href="{{ url_for('create') }}" class="btn btn-primary custom-btn fw-bold rounded-pill shadow-sm px-4">
+        <i class="fa-solid fa-plus me-1"></i> Nuevo Usuario
+    </a>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4 overflow-hidden mb-5 glass-card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 custom-table">
+                <thead class="bg-light text-muted">
+                    <tr>
+                        <th class="ps-4">ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th class="text-end pe-4">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td class="ps-4 fw-bold text-muted">#{{ usuario.id }}</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar me-3 bg-gradient-primary text-white rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; font-weight: bold;">
+                                    {{ usuario.nombre[0]|upper }}
+                                </div>
+                                <span class="fw-medium">{{ usuario.nombre }}</span>
+                            </div>
+                        </td>
+                        <td>{{ usuario.email }}</td>
+                        <td>
+                            {% if usuario.rol == 'admin' %}
+                                <span class="badge bg-primary rounded-pill px-3 py-2"><i class="fa-solid fa-shield-halved me-1"></i> Admin</span>
+                            {% else %}
+                                <span class="badge bg-secondary rounded-pill px-3 py-2"><i class="fa-solid fa-user me-1"></i> Usuario</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-end pe-4">
+                            <a href="{{ url_for('edit', id=usuario.id) }}" class="btn btn-sm btn-outline-info rounded-circle me-1 action-btn" title="Editar">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <form action="{{ url_for('delete', id=usuario.id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar este usuario? Esta acción no se puede deshacer.');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle action-btn" title="Eliminar">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center py-5 text-muted">
+                            <i class="fa-solid fa-inbox fa-3x mb-3 text-light-gray"></i>
+                            <h5>No hay usuarios registrados</h5>
+                            <p>Comienza creando un nuevo usuario en el sistema.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
